@@ -59,14 +59,15 @@
 
 <body>
 
-    <h2>{{room}} - DjChat</h2>
+    <h2>{{room|title}} Room - Chat</h2>
 
     <div id="display">
 
         <!-- <div class="container darker">
-  <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
-  <span class="time-left">20th, April 2021</span>
-</div> -->
+            <b>Tom</b>
+            <p>Hello Everyone, How Are You Guys Doing?</p>
+            <span class="time-left">20th, April 2021</span>
+        </div> -->
 
     </div>
 
@@ -150,7 +151,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '/send',
+            url: '/send/',
             data: {
                 username: $('#username').val(),
                 room_id: $('#room_id').val(),
@@ -158,7 +159,7 @@
                 csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
             },
             success: function (data) {
-                //alert(data)
+                console.log(data);
             }
         });
         document.getElementById('message').value = ''
